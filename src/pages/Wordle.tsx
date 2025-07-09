@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import './Wordle.css'
 
-function App() {
+function Wordle() {
 
   return (
     <>
@@ -15,4 +15,4 @@ function App() {
   )
 }
 
-export default App
+export default Wordle

@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import imageOfJeffrey from '/i.jpg'
 import './Home.css'
+import Wordle from './Wordle'
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom'
 
 function Home() {
 
