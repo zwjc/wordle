@@ -14,7 +14,7 @@ function Home() {
         <a href="https://jeffreychang.org" target="_blank">
           <motion.img
             src={imageOfPikachu}
-            className="logo"
+            className="pikachu"
             alt="Pikachu gif"
             initial={{ opacity: 0, scale: 0.5 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -45,17 +45,6 @@ function Home() {
         </motion.button>
         </a>
         </div>
-
-        <div>
-        <motion.p
-          className='bottomText'
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-        >
-          There is everything from fun challenges, to Wordle to quiz games!
-        </motion.p>
-      </div>
 
       <div>
         <motion.img

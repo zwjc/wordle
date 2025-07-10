@@ -7,13 +7,13 @@
   flex-direction: column;
 }
 
-.logo {
+.pikachu {
   height: 8em;
   padding: 3em;
   will-change: filter;
   transition: filter 200ms;
 }
-.logo:hover {
+.pikachu:hover {
   filter: drop-shadow(0 0 0.4em #f4dc26);
 }
 
@@ -29,16 +29,11 @@
 }
 
 .title {
-  padding-top: 2rem;
+  padding-top: 1rem;
   justify-content: center;
   text-shadow: 0 0 0.2em #000000;
-  color: #ff4848
-}
-
-.bottomText {
-  color: #FFFFFF;
-  font-size: 1.1rem;
-  margin-top: 2rem;
+  color: #ff4848;
+  font-size: 4rem;
 }
 
 .snivy {
