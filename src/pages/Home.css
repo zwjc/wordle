@@ -42,8 +42,14 @@
   position: absolute;
   bottom: 4%;
   left: 0;
+  will-change: filter;
+  transition: filter 200ms;
   transform: translateX(-100%);
   animation: snivy-slide-in 3s forwards;
+}
+
+.snivy:hover {
+  filter: drop-shadow(0 0 0.4em #0b9212);
 }
 
 @keyframes snivy-slide-in {
@@ -64,8 +70,14 @@
   position: absolute;
   bottom: 4%;
   right: 0;
+  will-change: filter;
+  transition: filter 200ms;
   transform: translateX(100%);
   animation: cyndaquil-slide-in 3s forwards;
+}
+
+.cyndaquil:hover {
+  filter: drop-shadow(0 0 0.8em #3a637b);
 }
 
 @keyframes cyndaquil-slide-in {
