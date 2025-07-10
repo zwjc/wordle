@@ -18,7 +18,7 @@ function Home() {
 
 
       <div>
-        <a href="/wordle" className="exploreButton">
+        <a href="/games" className="exploreButton">
         <button>
           Explore Games
         </button>

@@ -8,32 +8,33 @@ import "./main.css";
 function Links() {
     return (
         <Router>
-            <div>
-                <nav>
-                    <ul className="header-wrapper">
-                        <li> <Link to="/">Home </Link> </li>
-                        <li> <Link to="/wordle">Wordle </Link> </li>
-                        <li> <Link to="/quiz">Quiz </Link> </li>
-                        <li> <Link to="/coding">Coding Exercises </Link> </li>
-                        <li> <Link to="/about">About </Link> </li>
-                        <li> <Link to="/geoguessr">GeoGuessr </Link> </li>
-                        <li> <Link to="/tictactoe">Tic Tac Toe </Link> </li>
-                        <li> <Link to="/hangman">Hangman </Link> </li>
-                        <li> <Link to="/sudoku">Sudoku </Link> </li>
-                        <li> <Link to="/crossword">Crossword </Link> </li>
+            <div className="app">
+                <nav className="navbar">
+                    <ul className="nav-list">
+                        <li className="nav-item"> <Link to="/"          className="nav-link">Home </Link> </li>
+                        <li className="nav-item"> <Link to="/wordle"    className="nav-item">Wordle </Link> </li>
+                        <li className="nav-item"> <Link to="/quiz"      className="nav-item">Quiz </Link> </li>
+                        <li className="nav-item"> <Link to="/coding"    className="nav-item">Coding Exercises </Link> </li>
+                        <li className="nav-item"> <Link to="/about"     className="nav-item">About </Link> </li>
+                        <li className="nav-item"> <Link to="/geoguessr" className="nav-item">GeoGuessr </Link> </li>
+                        <li className="nav-item"> <Link to="/tictactoe" className="nav-item">Tic Tac Toe </Link> </li>
+                        <li className="nav-item"> <Link to="/hangman"   className="nav-item">Hangman </Link> </li>
+                        <li className="nav-item"> <Link to="/sudoku"    className="nav-item">Sudoku </Link> </li>
+                        <li className="nav-item"> <Link to="/crossword" className="nav-item">Crossword </Link> </li>
                     </ul> 
                 </nav> 
                 <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/wordle" element={<Wordle />} />
-                    <Route path="/quiz" element={<div>Quiz Page</div>} />
-                    <Route path="/coding" element={<div>Coding Exercises Page</div>} />
-                    <Route path="/about" element={<div>About Page</div>} />
-                    <Route path="/geoguessr" element={<div>GeoGuessr Page</div>} />
-                    <Route path="/tictactoe" element={<div>Tic Tac Toe Page</div>} />
-                    <Route path="/hangman" element={<div>Hangman Page</div>} />
-                    <Route path="/sudoku" element={<div>Sudoku Page</div>} />
-                    <Route path="/crossword" element={<div>Crossword Page</div>} />
+                    <Route path="/"             element={<Home />} />
+                    <Route path="/wordle"       element={<Wordle />} />
+                    <Route path="/quiz"         element={<div>Quiz Page</div>} />
+                    <Route path="/coding"       element={<div>Coding Exercises Page</div>} />
+                    <Route path="/about"        element={<div>About Page</div>} />
+                    <Route path="/geoguessr"    element={<div>GeoGuessr Page</div>} />
+                    <Route path="/tictactoe"    element={<div>Tic Tac Toe Page</div>} />
+                    <Route path="/hangman"      element={<div>Hangman Page</div>} />
+                    <Route path="/sudoku"       element={<div>Sudoku Page</div>} />
+                    <Route path="/crossword"    element={<div>Crossword Page</div>} />
+                    <Route path="/games"        element={<div>Collection of Games</div>} />
                 </Routes>
             </div>
         </Router>
@@ -42,6 +43,5 @@ function Links() {
 
 /**Fix the links to new page and new html */
 /**Add dark and light mode */
-/**Fix a nice navbar */
 
 export default Links;
