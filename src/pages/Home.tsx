@@ -1,6 +1,7 @@
 import { motion } from "motion/react"
 import imageOfPikachu from '/pikachucrop.gif'
 import gifOfSnivy from '/snivy.gif'
+import gifOfCyndaquil from '/cyndaquil.gif'
 import './Home.css'
 
 
@@ -61,12 +62,16 @@ function Home() {
           src={gifOfSnivy}
           className="snivy"
           alt="Snivy gif"
-          initial={{ opacity: 0, scale: 0.5 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
         />
       </div>
 
+      <div>
+        <motion.img
+          src={gifOfCyndaquil}
+          className="cyndaquil"
+          alt="Cyndaquil gif"
+        />
+      </div>
 
     </>
   )

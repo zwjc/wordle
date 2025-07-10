@@ -5,7 +5,6 @@
   text-align: center;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 }
 
 .logo {
@@ -40,13 +39,48 @@
   color: #FFFFFF;
   font-size: 1.1rem;
   margin-top: 2rem;
-  justify-content: center;
 }
 
 .snivy {
-  width: 10%;
-  height: 10%;
-  top: 0;
+  width: 8%;
+  height: auto;
+  position: absolute;
+  bottom: 4%;
   left: 0;
-  justify-content: center;
+  transform: translateX(-100%);
+  animation: snivy-slide-in 3s forwards;
+}
+
+@keyframes snivy-slide-in {
+  0% {
+    transform: translateX(-100%) translateY(100%) scaleX(-1);
+  }
+  50% {
+    transform: translateX(0) translateY(0) scaleX(-1);
+  }
+  100% {
+    transform: translateX(calc(50vw - 300%)) translateY(0) scaleX(-1);
+  }
+}
+
+.cyndaquil {
+  width: 12%;
+  height: auto;
+  position: absolute;
+  bottom: 4%;
+  right: 0;
+  transform: translateX(100%);
+  animation: cyndaquil-slide-in 3s forwards;
+}
+
+@keyframes cyndaquil-slide-in {
+  0% {
+    transform: translateX(100%) translateY(100%);
+  }
+  50% {
+    transform: translateX(0) translateY(0);
+  }
+  100% {
+    transform: translateX(calc(-50vw + 230%)) translateY(0);
+  }
 }
