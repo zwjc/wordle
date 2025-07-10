@@ -77,10 +77,39 @@ button:hover {
   margin: 0;
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 .nav-item {
   margin: 0 15px;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0.5rem;
+  }
+
+  .nav-list {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav-item {
+    margin: 5px 0;
+  }
+
+  .nav-link {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-item {
+    margin: 3px 0;
+  }
+  .nav-link {
+    font-size: 0.9rem;
+  }
 }
 
 .nav-link {
