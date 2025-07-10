@@ -39,7 +39,6 @@ function Links() {
     );
 } 
 
-/**Fix the links to new page and new html */
 /**Add dark and light mode */
 
 export default Links;

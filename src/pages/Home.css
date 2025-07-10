@@ -3,6 +3,9 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .logo {
@@ -17,14 +20,33 @@
 
 .exploreButton {
   padding: 2em;
-  color: #646cff;
+  color: #ff7b7b;
 }
 
 .exploreButtonText {
-  color: #646cff;
+  color: #ff9090;
+  font-size: 1.5em;
   padding: 0.8em 1em;
 }
 
 .title {
-  color: #646cff
+  padding-top: 2rem;
+  justify-content: center;
+  text-shadow: 0 0 0.2em #000000;
+  color: #ff4848
+}
+
+.bottomText {
+  color: #FFFFFF;
+  font-size: 1.1rem;
+  margin-top: 2rem;
+  justify-content: center;
+}
+
+.snivy {
+  width: 10%;
+  height: 10%;
+  top: 0;
+  left: 0;
+  justify-content: center;
 }

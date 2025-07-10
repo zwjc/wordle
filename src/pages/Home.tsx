@@ -1,6 +1,8 @@
-import { useState } from 'react'
+import { motion } from "motion/react"
 import imageOfPikachu from '/pikachucrop.gif'
+import gifOfSnivy from '/snivy.gif'
 import './Home.css'
+
 
 function Home() {
 
@@ -9,24 +11,60 @@ function Home() {
 
       <div>
         <a href="https://jeffreychang.org" target="_blank">
-          <img src={imageOfPikachu} className="logo" alt="Pikachu gif" />
+          <motion.img
+            src={imageOfPikachu}
+            className="logo"
+            alt="Pikachu gif"
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+          />
         </a>
       </div>
-      <h1 className='title'>Welcome to My Collection of Games!</h1>
+      <motion.h1
+        className='title'
+        initial={{ opacity: 0, y: -50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.2 }}
+      >
+        Welcome to My Collection of Games!
+      </motion.h1>
 
 
       <div>
         <a href="/games" className="exploreButton">
-        <button className='exploreButtonText'>
+        <motion.button
+          className='exploreButtonText'
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1, transition: { delay: 0.8 } }}
+          whileTap={{ scale: 0.9 }}
+          whileHover={{ scale: 1.1 }}
+        >
           Explore Games
-        </button>
+        </motion.button>
         </a>
         </div>
 
         <div>
-        <p>
+        <motion.p
+          className='bottomText'
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+        >
           There is everything from fun challenges, to Wordle to quiz games!
-        </p>
+        </motion.p>
+      </div>
+
+      <div>
+        <motion.img
+          src={gifOfSnivy}
+          className="snivy"
+          alt="Snivy gif"
+          initial={{ opacity: 0, scale: 0.5 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+        />
       </div>
 
 

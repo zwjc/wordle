@@ -24,7 +24,7 @@ a:hover {
 }
 
 body {
-  cursor: url('/cursor (2).png') 24 24, auto;
+  cursor: url('/cursor (2).png') 24 12, auto;
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
@@ -48,7 +48,7 @@ button {
 }
 button:hover {
   cursor: url('/cursorhover (2).png') 8 8, auto;
-  border-color: #646cff;
+  border-color: #000000;
   button:focus,
   button:focus-visible {
     outline: 4px auto -webkit-focus-ring-color;
@@ -61,9 +61,12 @@ button:hover {
 }
 
 .navbar {
-  background-color: #282c34;
+  background-color: rgba(40, 44, 52, 0.2);
+  backdrop-filter: blur(6px);
   padding: 1rem 0.5rem;
   border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .nav-list {
@@ -79,16 +82,13 @@ button:hover {
 }
 
 .nav-link {
-  color: #646cff;
+  color: #ff4848;
   text-decoration: none;
-  font-size: 1rem;
-  will-change: filter;
-  transition: filter 200ms
+  font-size: 1.1rem;
 }
 
 .nav-link:hover {
-  color: #646cffaf;
-  filter: drop-shadow(0 0 1em #ffffff);
+  color: #ff4848af;
   cursor: url('/cursorhover (2).png') 8 8, auto;
 }
 
