@@ -10,7 +10,7 @@ function Links() {
         <Router>
             <div>
                 <nav>
-                    <ul>
+                    <ul className="header-wrapper">
                         <li> <Link to="/">Home </Link> </li>
                         <li> <Link to="/wordle">Wordle </Link> </li>
                         <li> <Link to="/quiz">Quiz </Link> </li>
