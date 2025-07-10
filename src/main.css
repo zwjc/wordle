@@ -24,10 +24,9 @@ a:hover {
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  cursor: url(/cursor.png), auto;
 }
 
 h1 {
@@ -54,21 +53,6 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-}
-
-
-
 
 .App {
   text-align: center;
@@ -76,7 +60,8 @@ button:focus-visible {
 
 .navbar {
   background-color: #282c34;
-  padding: 1rem;
+  padding: 1rem 0.5rem;
+  border-radius: 15px;
 }
 
 .nav-list {
@@ -92,12 +77,15 @@ button:focus-visible {
 }
 
 .nav-link {
-  color: white;
+  color: #646cff;
   text-decoration: none;
-  font-size: 1.2rem;
+  font-size: 1rem;
+  will-change: filter;
+  transition: filter 200ms
 }
 
 .nav-link:hover {
-  color: #61dafb;
+  color: #646cffaf;
+  filter: drop-shadow(0 0 1em #ffffff);
 }
 

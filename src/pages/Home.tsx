@@ -1,8 +1,6 @@
 import { useState } from 'react'
-import imageOfJeffrey from '/i.jpg'
+import imageOfPikachu from '/pikachucrop.gif'
 import './Home.css'
-import Wordle from './Wordle'
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom'
 
 function Home() {
 
@@ -11,15 +9,15 @@ function Home() {
 
       <div>
         <a href="https://jeffreychang.org" target="_blank">
-          <img src={imageOfJeffrey} className="logo" alt="Jeffrey's website" />
+          <img src={imageOfPikachu} className="logo" alt="Pikachu gif" />
         </a>
       </div>
-      <h1>Welcome to My Collection of Games!</h1>
+      <h1 className='title'>Welcome to My Collection of Games!</h1>
 
 
       <div>
         <a href="/games" className="exploreButton">
-        <button>
+        <button className='exploreButtonText'>
           Explore Games
         </button>
         </a>

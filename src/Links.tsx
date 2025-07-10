@@ -1,5 +1,3 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import Home from "./pages/Home";
 import Wordle from "./pages/Wordle";
@@ -12,15 +10,15 @@ function Links() {
                 <nav className="navbar">
                     <ul className="nav-list">
                         <li className="nav-item"> <Link to="/"          className="nav-link">Home </Link> </li>
-                        <li className="nav-item"> <Link to="/wordle"    className="nav-item">Wordle </Link> </li>
-                        <li className="nav-item"> <Link to="/quiz"      className="nav-item">Quiz </Link> </li>
-                        <li className="nav-item"> <Link to="/coding"    className="nav-item">Coding Exercises </Link> </li>
-                        <li className="nav-item"> <Link to="/about"     className="nav-item">About </Link> </li>
-                        <li className="nav-item"> <Link to="/geoguessr" className="nav-item">GeoGuessr </Link> </li>
-                        <li className="nav-item"> <Link to="/tictactoe" className="nav-item">Tic Tac Toe </Link> </li>
-                        <li className="nav-item"> <Link to="/hangman"   className="nav-item">Hangman </Link> </li>
-                        <li className="nav-item"> <Link to="/sudoku"    className="nav-item">Sudoku </Link> </li>
-                        <li className="nav-item"> <Link to="/crossword" className="nav-item">Crossword </Link> </li>
+                        <li className="nav-item"> <Link to="/wordle"    className="nav-link">Wordle </Link> </li>
+                        <li className="nav-item"> <Link to="/quiz"      className="nav-link">Quiz </Link> </li>
+                        <li className="nav-item"> <Link to="/coding"    className="nav-link">Coding Exercises </Link> </li>
+                        <li className="nav-item"> <Link to="/about"     className="nav-link">About </Link> </li>
+                        <li className="nav-item"> <Link to="/geoguessr" className="nav-link">GeoGuessr </Link> </li>
+                        <li className="nav-item"> <Link to="/tictactoe" className="nav-link">Tic Tac Toe </Link> </li>
+                        <li className="nav-item"> <Link to="/hangman"   className="nav-link">Hangman </Link> </li>
+                        <li className="nav-item"> <Link to="/sudoku"    className="nav-link">Sudoku </Link> </li>
+                        <li className="nav-item"> <Link to="/crossword" className="nav-link">Crossword </Link> </li>
                     </ul> 
                 </nav> 
                 <Routes>
