@@ -1,6 +1,13 @@
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import Home from "./pages/Home";
 import Wordle from "./pages/Wordle";
+import Quizzes from "./pages/Quizzes";
+import GeoGuessr from "./pages/GeoGuessr";
+import TicTacToe from "./pages/TicTacToe";
+import Hangman from "./pages/Hangman";
+import Sudoku from "./pages/Sudoku";
+import Crossword from "./pages/Crossword";
+import Games from "./pages/Games";
 import "./main.css";
 
 function Links() {
@@ -22,13 +29,13 @@ function Links() {
                 <Routes>
                     <Route path="/"             element={<Home />} />
                     <Route path="/wordle"       element={<Wordle />} />
-                    <Route path="/quizzes"         element={<div>Quiz Page</div>} />
-                    <Route path="/geoguessr"    element={<div>GeoGuessr Page</div>} />
-                    <Route path="/tictactoe"    element={<div>Tic Tac Toe Page</div>} />
-                    <Route path="/hangman"      element={<div>Hangman Page</div>} />
-                    <Route path="/sudoku"       element={<div>Sudoku Page</div>} />
-                    <Route path="/crossword"    element={<div>Crossword Page</div>} />
-                    <Route path="/games"        element={<div>Collection of Games</div>} />
+                    <Route path="/quizzes"         element={<Quizzes />} />
+                    <Route path="/geoguessr"    element={<GeoGuessr />} />
+                    <Route path="/tictactoe"    element={<TicTacToe />} />
+                    <Route path="/hangman"      element={<Hangman />} />
+                    <Route path="/sudoku"       element={<Sudoku />} />
+                    <Route path="/crossword"    element={<Crossword />} />
+                    <Route path="/games"        element={<Games />} />
                 </Routes>
             </div>
         </Router>
