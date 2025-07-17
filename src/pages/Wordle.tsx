@@ -1,36 +1,46 @@
-import React, { useState, useEffect } from 'react';
+
+import React, { useState, useEffect, useCallback } from 'react';
 import './Wordle.css';
 
 const WORD_LENGTH = 5;
 const MAX_GUESSES = 6;
 
-const Keyboard = ({ onKeyPress, letterStatuses }) => {
+type LetterStatus = 'correct' | 'present' | 'absent' | 'default';
+
+type LetterStatuses = { [key: string]: LetterStatus };
+
+interface KeyboardProps {
+  onKeyPress: (key: string) => void;
+  letterStatuses: LetterStatuses;
+}
+
+const Keyboard: React.FC<KeyboardProps> = ({ onKeyPress, letterStatuses }) => {
   const row1 = ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'];
   const row2 = ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'];
   const row3 = ['enter', 'z', 'x', 'c', 'v', 'b', 'n', 'm', 'backspace'];
 
-  const getKeyStatus = (key) => {
-    return letterStatuses[key] || '';
+  const getKeyStatus = (key: string): LetterStatus => {
+    return letterStatuses[key] || 'default';
   };
 
   return (
     <div className="keyboard">
       <div className="keyboard-row">
-        {row1.map((key) => (
+        {row1.map((key: string) => (
           <button key={key} className={`key ${getKeyStatus(key)}`} onClick={() => onKeyPress(key)}>
             {key}
           </button>
         ))}
       </div>
       <div className="keyboard-row">
-        {row2.map((key) => (
+        {row2.map((key: string) => (
           <button key={key} className={`key ${getKeyStatus(key)}`} onClick={() => onKeyPress(key)}>
             {key}
           </button>
         ))}
       </div>
       <div className="keyboard-row">
-        {row3.map((key) => (
+        {row3.map((key: string) => (
           <button
             key={key}
             className={`key ${key.length > 1 ? 'wide' : ''} ${getKeyStatus(key)}`}
@@ -44,72 +54,21 @@ const Keyboard = ({ onKeyPress, letterStatuses }) => {
   );
 };
 
-const Wordle = () => {
-  const [solution, setSolution] = useState('');
-  const [guesses, setGuesses] = useState(Array(MAX_GUESSES).fill(''));
-  const [currentGuess, setCurrentGuess] = useState('');
-  const [currentRow, setCurrentRow] = useState(0);
-  const [isGameOver, setIsGameOver] = useState(false);
-  const [message, setMessage] = useState('');
-  const [letterStatuses, setLetterStatuses] = useState({});
+const Wordle: React.FC = () => {
+  const [solution, setSolution] = useState<string>('');
+  const [guesses, setGuesses] = useState<string[]>(Array(MAX_GUESSES).fill(''));
+  const [currentGuess, setCurrentGuess] = useState<string>('');
+  const [currentRow, setCurrentRow] = useState<number>(0);
+  const [isGameOver, setIsGameOver] = useState<boolean>(false);
+  const [message, setMessage] = useState<string>('');
+  const [letterStatuses, setLetterStatuses] = useState<LetterStatuses>({});
 
-  useEffect(() => {
-    // In a real app, you'd fetch this from your backend
-    // For now, we'll use a placeholder.
-    // fetch('http://localhost:8787/api/word')
-    //   .then(res => res.json())
-    //   .then(data => setSolution(data.word.toLowerCase()));
-    setSolution("react"); // Placeholder
-  }, []);
-
-  useEffect(() => {
-    const handleKeyDown = (event) => {
-      if (isGameOver) return;
-
-      const { key } = event;
-      if (key === 'Enter') {
-        handleEnter();
-      } else if (key === 'Backspace') {
-        handleBackspace();
-      } else if (key.length === 1 && key.match(/[a-z]/i)) {
-        handleChar(key.toLowerCase());
-      }
-    };
-
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [currentGuess, isGameOver, currentRow, guesses, solution]);
-
-  const handleKeyPress = (key) => {
+  const handleEnter = useCallback(() => {
     if (isGameOver) return;
 
-    if (key === 'enter') {
-      handleEnter();
-    } else if (key === 'backspace') {
-      handleBackspace();
-    } else {
-      handleChar(key);
-    }
-  };
-
-  const handleChar = (char) => {
-    if (currentGuess.length < WORD_LENGTH) {
-      setCurrentGuess(currentGuess + char);
-    }
-  };
-
-  const handleBackspace = () => {
-    setCurrentGuess(currentGuess.slice(0, -1));
-  };
-
-  const handleEnter = () => {
     if (currentGuess.length !== WORD_LENGTH) {
       setMessage('Not enough letters');
       setTimeout(() => setMessage(''), 2000);
-      return;
-    }
-
-    if (currentRow >= MAX_GUESSES) {
       return;
     }
 
@@ -117,18 +76,18 @@ const Wordle = () => {
     newGuesses[currentRow] = currentGuess;
     setGuesses(newGuesses);
 
-    const newLetterStatuses = { ...letterStatuses };
+    const newLetterStatuses: LetterStatuses = { ...letterStatuses };
     for (let i = 0; i < currentGuess.length; i++) {
-        const char = currentGuess[i];
-        if (solution[i] === char) {
-            newLetterStatuses[char] = 'correct';
-        } else if (solution.includes(char)) {
-            if (newLetterStatuses[char] !== 'correct') {
-                newLetterStatuses[char] = 'present';
-            }
-        } else {
-            newLetterStatuses[char] = 'absent';
+      const char = currentGuess[i];
+      if (solution[i] === char) {
+        newLetterStatuses[char] = 'correct';
+      } else if (solution.includes(char)) {
+        if (newLetterStatuses[char] !== 'correct') {
+          newLetterStatuses[char] = 'present';
         }
+      } else {
+        newLetterStatuses[char] = 'absent';
+      }
     }
     setLetterStatuses(newLetterStatuses);
 
@@ -141,14 +100,51 @@ const Wordle = () => {
       setMessage(`You lose! The word was: ${solution.toUpperCase()}`);
     }
 
-    setCurrentRow(currentRow + 1);
+    setCurrentRow((prevRow) => prevRow + 1);
     setCurrentGuess('');
-  };
+  }, [currentGuess, currentRow, guesses, isGameOver, letterStatuses, solution]);
 
-  const getTileClass = (rowIndex, colIndex) => {
+  const handleChar = useCallback((char: string) => {
+    if (currentGuess.length < WORD_LENGTH) {
+      setCurrentGuess((prev) => prev + char);
+    }
+  }, [currentGuess.length]);
+
+  const handleBackspace = useCallback(() => {
+    setCurrentGuess((prev) => prev.slice(0, -1));
+  }, []);
+
+  const handleKeyPress = useCallback((key: string) => {
+    if (isGameOver) return;
+    if (key === 'enter') {
+      handleEnter();
+    } else if (key === 'backspace') {
+      handleBackspace();
+    } else {
+      handleChar(key);
+    }
+  }, [isGameOver, handleEnter, handleBackspace, handleChar]);
+
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      const { key } = event;
+      handleKeyPress(key.toLowerCase());
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [handleKeyPress]);
+
+  useEffect(() => {
+    setSolution("cloud"); //** PALCEHOLDER */
+  }, []);
+
+  const getTileClass = (rowIndex: number, colIndex: number): string => {
     const guess = guesses[rowIndex];
     const char = guess[colIndex];
 
+    if (rowIndex >= currentRow) {
+      return 'tile';
+    }
     if (solution[colIndex] === char) {
       return 'tile correct';
     }
@@ -158,19 +154,15 @@ const Wordle = () => {
     return 'tile absent';
   };
 
-
   return (
     <div className="wordle-game">
       <h1>Wordle</h1>
       {message && <div className="message">{message}</div>}
       <div className="grid">
-        {guesses.map((guess, rowIndex) => (
+        {guesses.map((guess: string, rowIndex: number) => (
           <div key={rowIndex} className="row">
-            {Array.from({ length: WORD_LENGTH }).map((_, colIndex) => (
-              <div
-                key={colIndex}
-                className={guesses[rowIndex] ? getTileClass(rowIndex, colIndex) : 'tile'}
-              >
+            {Array.from({ length: WORD_LENGTH }).map((_, colIndex: number) => (
+              <div key={colIndex} className={getTileClass(rowIndex, colIndex)}>
                 {rowIndex === currentRow ? currentGuess[colIndex] : guess[colIndex]}
               </div>
             ))}
