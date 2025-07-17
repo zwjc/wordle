@@ -1,10 +1,63 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+.geoguessr-game {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: sans-serif;
+  padding: 20px;
+  color: #333; /* Dark text for better contrast */
+}
+
+.location-display {
+  margin-bottom: 20px;
   text-align: center;
 }
 
-.playButton {
-  padding: 2em;
+.location-image {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid #ccc;
+  margin-bottom: 15px;
+}
+
+.location-display input {
+  padding: 10px;
+  font-size: 1rem;
+  width: 300px;
+  margin-right: 10px;
+  background-color: #f9f9f9; /* Light background for input */
+  color: #333; /* Dark text for input */
+  border: 1px solid #ccc;
+}
+
+.location-display button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  background-color: #007bff; /* Blue background for buttons */
+  color: white; /* White text for buttons */
+  border: none;
+  border-radius: 5px;
+}
+
+.location-display button:hover {
+  background-color: #0056b3;
+}
+
+.message {
+  margin-top: 10px;
+  font-size: 1.2rem;
+  color: green;
+}
+
+.score {
+  margin-top: 20px;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.note {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 20px;
 }

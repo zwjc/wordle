@@ -30,7 +30,7 @@
   font-size: 2rem;
   font-weight: bold;
   text-transform: uppercase;
-  color: black;
+  color: white;
 }
 
 .tile.correct {
@@ -77,8 +77,8 @@
   border-radius: 5px;
   cursor: pointer;
   user-select: none;
-  background-color: #d3d6da;
-  color: #1a1a1a;
+  background-color: #565758;
+  color: white;
   flex: 1;
   display: flex;
   justify-content: center;

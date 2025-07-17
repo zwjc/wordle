@@ -1,10 +1,123 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+.hangman-game {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  font-family: sans-serif;
+  color: #333; /* Dark text for better contrast */
 }
 
-.playButton {
-  padding: 2em;
+.hangman-drawing {
+  position: relative;
+  width: 200px;
+  height: 250px;
+  margin-bottom: 20px;
+}
+
+.scaffold {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 10px;
+  height: 250px;
+  background-color: #333;
+  display: none;
+}
+
+.scaffold.show {
+  display: block;
+}
+
+.head, .body, .left-arm, .right-arm, .left-leg, .right-leg {
+  position: absolute;
+  background-color: #333;
+  display: none;
+}
+
+.head.show, .body.show, .left-arm.show, .right-arm.show, .left-leg.show, .right-leg.show {
+  display: block;
+}
+
+.head {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.body {
+  width: 10px;
+  height: 100px;
+  top: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.left-arm {
+  width: 10px;
+  height: 60px;
+  top: 60px;
+  left: 50%;
+  transform: translateX(-150%) rotate(45deg);
+}
+
+.right-arm {
+  width: 10px;
+  height: 60px;
+  top: 60px;
+  left: 50%;
+  transform: translateX(50%) rotate(-45deg);
+}
+
+.left-leg {
+  width: 10px;
+  height: 60px;
+  top: 140px;
+  left: 50%;
+  transform: translateX(-150%) rotate(-45deg);
+}
+
+.right-leg {
+  width: 10px;
+  height: 60px;
+  top: 140px;
+  left: 50%;
+  transform: translateX(50%) rotate(45deg);
+}
+
+.word-to-show {
+  font-size: 2rem;
+  letter-spacing: 0.5rem;
+  margin-bottom: 20px;
+}
+
+.keyboard {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(40px, 1fr));
+  gap: 5px;
+  max-width: 500px;
+}
+
+.keyboard button {
+  font-size: 1.2rem;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #f0f0f0; /* Light background for buttons */
+  color: #333; /* Dark text for buttons */
+}
+
+.keyboard button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.message {
+  font-size: 1.5rem;
+  margin-top: 20px;
 }
