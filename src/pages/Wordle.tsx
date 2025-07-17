@@ -117,7 +117,6 @@ const Wordle = () => {
     newGuesses[currentRow] = currentGuess;
     setGuesses(newGuesses);
 
-    // Update letter statuses
     const newLetterStatuses = { ...letterStatuses };
     for (let i = 0; i < currentGuess.length; i++) {
         const char = currentGuess[i];
@@ -133,28 +132,22 @@ const Wordle = () => {
     }
     setLetterStatuses(newLetterStatuses);
 
-
-    if (currentGuess === solution) {
+    const isWinner = currentGuess === solution;
+    if (isWinner) {
       setIsGameOver(true);
       setMessage('You win!');
-      return;
+    } else if (currentRow + 1 >= MAX_GUESSES) {
+      setIsGameOver(true);
+      setMessage(`You lose! The word was: ${solution.toUpperCase()}`);
     }
 
     setCurrentRow(currentRow + 1);
     setCurrentGuess('');
-
-    if (currentRow + 1 >= MAX_GUESSES) {
-      setIsGameOver(true);
-      setMessage(`You lose! The word was: ${solution.toUpperCase()}`);
-    }
   };
 
   const getTileClass = (rowIndex, colIndex) => {
     const guess = guesses[rowIndex];
     const char = guess[colIndex];
-    const submitted = rowIndex < currentRow;
-
-    if (!submitted || !char) return 'tile';
 
     if (solution[colIndex] === char) {
       return 'tile correct';
@@ -176,7 +169,7 @@ const Wordle = () => {
             {Array.from({ length: WORD_LENGTH }).map((_, colIndex) => (
               <div
                 key={colIndex}
-                className={rowIndex < currentRow ? getTileClass(rowIndex, colIndex) : 'tile'}
+                className={guesses[rowIndex] ? getTileClass(rowIndex, colIndex) : 'tile'}
               >
                 {rowIndex === currentRow ? currentGuess[colIndex] : guess[colIndex]}
               </div>
