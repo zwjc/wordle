@@ -5,7 +5,10 @@
   justify-content: center;
   height: 100vh;
   font-family: sans-serif;
-  color: #333; /* Dark text for better contrast */
+}
+
+.sudoku-game h1 {
+  color: white !important;
 }
 
 .sudoku-board {

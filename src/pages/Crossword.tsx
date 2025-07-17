@@ -58,7 +58,6 @@ const Crossword: React.FC = () => {
   const checkSolution = () => {
     let allCorrect = true;
 
-    // Check Across words
     for (const clueNum in clues.across) {
       const wordKey = initialPuzzle.flat().find(cell => cell.clueNumber === parseInt(clueNum) && cell.acrossWord)?.acrossWord;
       if (wordKey) {
@@ -66,7 +65,6 @@ const Crossword: React.FC = () => {
         let startRow = -1;
         let startCol = -1;
 
-        // Find starting position of the word
         for(let r = 0; r < puzzle.length; r++) {
             for(let c = 0; c < puzzle[r].length; c++) {
                 if(initialPuzzle[r][c].clueNumber === parseInt(clueNum) && initialPuzzle[r][c].acrossWord === wordKey) {
@@ -90,7 +88,6 @@ const Crossword: React.FC = () => {
       }
     }
 
-    // Check Down words
     if (allCorrect) {
         for (const clueNum in clues.down) {
             const wordKey = initialPuzzle.flat().find(cell => cell.clueNumber === parseInt(clueNum) && cell.downWord)?.downWord;
@@ -99,7 +96,6 @@ const Crossword: React.FC = () => {
                 let startRow = -1;
                 let startCol = -1;
 
-                // Find starting position of the word
                 for(let r = 0; r < puzzle.length; r++) {
                     for(let c = 0; c < puzzle[r].length; c++) {
                         if(initialPuzzle[r][c].clueNumber === parseInt(clueNum) && initialPuzzle[r][c].downWord === wordKey) {

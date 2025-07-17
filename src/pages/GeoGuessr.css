@@ -5,7 +5,10 @@
   justify-content: center;
   font-family: sans-serif;
   padding: 20px;
-  color: #333; /* Dark text for better contrast */
+}
+
+.geoguessr-game h1 {
+  color: white !important;
 }
 
 .location-display {

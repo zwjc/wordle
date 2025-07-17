@@ -5,7 +5,11 @@
   justify-content: center;
   font-family: sans-serif;
   padding: 20px;
-  color: #333; /* Dark text for better contrast */
+}
+
+.crossword-game h1,
+.clues h2 {
+  color: white !important;
 }
 
 .crossword-grid {
