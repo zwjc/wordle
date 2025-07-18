@@ -21,6 +21,30 @@
   border: 2px solid #333;
 }
 
+@media (max-width: 768px) {
+  .board {
+    grid-template-columns: repeat(3, 80px);
+    grid-template-rows: repeat(3, 80px);
+  }
+  .square {
+    width: 80px;
+    height: 80px;
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .board {
+    grid-template-columns: repeat(3, 60px);
+    grid-template-rows: repeat(3, 60px);
+  }
+  .square {
+    width: 60px;
+    height: 60px;
+    font-size: 2rem;
+  }
+}
+
 .square {
   width: 100px;
   height: 100px;
@@ -36,4 +60,17 @@
 
 .game-info {
   margin-left: 20px;
+}
+
+@media (max-width: 768px) {
+  .game {
+    flex-direction: column;
+  }
+  .game-board {
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+  .game-info {
+    margin-left: 0;
+  }
 }

@@ -20,6 +20,26 @@
   margin-bottom: 20px;
 }
 
+@media (max-width: 768px) {
+  .crossword-grid {
+    grid-template-columns: repeat(5, 45px);
+    grid-template-rows: repeat(5, 45px);
+  }
+  .crossword-cell input {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .crossword-grid {
+    grid-template-columns: repeat(5, 40px);
+    grid-template-rows: repeat(5, 40px);
+  }
+  .crossword-cell input {
+    font-size: 1.2rem;
+  }
+}
+
 .crossword-row {
   display: contents;
 }
@@ -65,6 +85,13 @@
   width: 100%;
   max-width: 600px;
   margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+  .clues {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 .clues h2 {

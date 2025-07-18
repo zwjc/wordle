@@ -11,6 +11,36 @@
   grid-gap: 10px;
 }
 
+@media (max-width: 768px) {
+  .card-grid {
+    grid-template-columns: repeat(4, 80px);
+    grid-gap: 8px;
+  }
+  .card {
+    width: 80px;
+    height: 80px;
+  }
+  .card-front,
+  .card-back {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .card-grid {
+    grid-template-columns: repeat(4, 70px);
+    grid-gap: 5px;
+  }
+  .card {
+    width: 70px;
+    height: 70px;
+  }
+  .card-front,
+  .card-back {
+    font-size: 1.5rem;
+  }
+}
+
 .card {
   width: 100px;
   height: 100px;
