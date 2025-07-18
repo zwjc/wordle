@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useCallback } from 'react';
 import './Wordle.css';
 
@@ -48,7 +47,7 @@ const Keyboard: React.FC<KeyboardProps> = ({ onKeyPress, letterStatuses }) => {
             gridRow: 3,
             gridColumn: k === 'enter' ? '1 / span 2'
                         : k === 'backspace' ? '9 / span 2'
-                        : i + 2, 
+                        : i + 2,
           }}
           className={`key ${k.length > 1 ? 'wide' : ''} ${getKeyStatus(k)}`}
           onClick={() => onKeyPress(k)}
