@@ -5,8 +5,8 @@
   justify-content: center;
   height: 100vh;
   font-family: 'Helvetica Neue', sans-serif;
-  padding-top: 80px;
-  box-sizing: border-box;
+  padding-top: 80px; /* Add padding to clear the navbar */
+  box-sizing: border-box; /* Include padding in element's total width and height */
 }
 
 .wordle-game h1 {
@@ -57,48 +57,28 @@
   border-color: #787c7e;
 }
 
-.keyboard {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  max-width: 530px;
-  margin-top: 20px;
-  margin-left: auto;
-  margin-right: auto;
-}
 
-.keyboard-row {
-  display: flex;
-  justify-content: center;
-  gap: 6px;
-  margin-bottom: 8px;
-  width: 100%;
-  flex-wrap: wrap;
+.keyboard {
+  display: grid;
+  grid-template-rows: repeat(3, auto);
+  grid-template-columns: repeat(10, minmax(43px, 1fr));
+  grid-auto-rows: 58px;
+  gap: 8px 6px;
+  max-width: 530px;
+  margin: 20px auto 0;
 }
 
 .key {
-  font-family: inherit;
-  font-weight: bold;
-  border: 0;
-  padding: 0;
-  height: 58px;
-  border-radius: 4px;
-  cursor: pointer;
-  user-select: none;
-  background-color: #565758;
-  color: white;
-  width: 43px;
-  display: flex;
+  display: flex; 
+  align-items: center; 
   justify-content: center;
-  align-items: center;
+  border: none; 
+  border-radius: 4px; 
   text-transform: uppercase;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0.3);
-  font-size: 1.1rem;
-}
-
-.key.wide {
-    width: 65px;
+  font-size: 14px; 
+  cursor: pointer; 
+  background: #565758; 
+  color: #fff;
 }
 
 .key.correct {

@@ -25,31 +25,35 @@ const Keyboard: React.FC<KeyboardProps> = ({ onKeyPress, letterStatuses }) => {
 
   return (
     <div className="keyboard">
-      <div className="keyboard-row">
-        {row1.map((key: string) => (
-          <button key={key} className={`key ${getKeyStatus(key)}`} onClick={() => onKeyPress(key)}>
-            {key}
-          </button>
-        ))}
-      </div>
-      <div className="keyboard-row">
-        {row2.map((key: string) => (
-          <button key={key} className={`key ${getKeyStatus(key)}`} onClick={() => onKeyPress(key)}>
-            {key}
-          </button>
-        ))}
-      </div>
-      <div className="keyboard-row">
-        {row3.map((key: string) => (
-          <button
-            key={key}
-            className={`key ${key.length > 1 ? 'wide' : ''} ${getKeyStatus(key)}`}
-            onClick={() => onKeyPress(key)}
-          >
-            {key === 'backspace' ? '⌫' : key}
-          </button>
-        ))}
-      </div>
+      {row1.map((k, i) => (
+        <button
+          key={k}
+          style={{ gridRow: 1, gridColumn: i + 1 }}
+          className={`key ${getKeyStatus(k)}`}
+          onClick={() => onKeyPress(k)}
+        >{k}</button>
+      ))}
+      {row2.map((k, i) => (
+        <button
+          key={k}
+          style={{ gridRow: 2, gridColumn: i + 2 }}
+          className={`key ${getKeyStatus(k)}`}
+          onClick={() => onKeyPress(k)}
+        >{k}</button>
+      ))}
+      {row3.map((k, i) => (
+        <button
+          key={k}
+          style={{
+            gridRow: 3,
+            gridColumn: k === 'enter' ? '1 / span 2'
+                        : k === 'backspace' ? '9 / span 2'
+                        : i + 2, 
+          }}
+          className={`key ${k.length > 1 ? 'wide' : ''} ${getKeyStatus(k)}`}
+          onClick={() => onKeyPress(k)}
+        >{k === 'backspace' ? '⌫' : k}</button>
+      ))}
     </div>
   );
 };
