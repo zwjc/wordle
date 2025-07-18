@@ -8,6 +8,7 @@ import Hangman from "./pages/Hangman";
 import Sudoku from "./pages/Sudoku";
 import Crossword from "./pages/Crossword";
 import Games from "./pages/Games";
+import Memory from "./pages/Memory";
 import "./main.css";
 
 function Links() {
@@ -19,6 +20,7 @@ function Links() {
                         <li className="nav-item"> <Link to="/"          className="nav-link">Home </Link> </li>
                         <li className="nav-item"> <Link to="/wordle"    className="nav-link">Wordle </Link> </li>
                         <li className="nav-item"> <Link to="/quizzes"   className="nav-link">Quizzes </Link> </li>
+                        <li className="nav-item"> <Link to="/memory"    className="nav-link">Memory </Link> </li>
                         <li className="nav-item"> <Link to="/geoguessr" className="nav-link">GeoGuessr </Link> </li>
                         <li className="nav-item"> <Link to="/tictactoe" className="nav-link">Tic Tac Toe </Link> </li>
                         <li className="nav-item"> <Link to="/hangman"   className="nav-link">Hangman </Link> </li>
@@ -35,6 +37,7 @@ function Links() {
                     <Route path="/hangman"      element={<Hangman />} />
                     <Route path="/sudoku"       element={<Sudoku />} />
                     <Route path="/crossword"    element={<Crossword />} />
+                    <Route path="/memory"       element={<Memory />} />
                     <Route path="/games"        element={<Games />} />
                 </Routes>
             </div>
@@ -42,7 +45,5 @@ function Links() {
     );
 } 
 
-/**Add dark and light mode */
-// Add moving background
 
 export default Links;
