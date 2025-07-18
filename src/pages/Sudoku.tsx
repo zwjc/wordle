@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import './Sudoku.css';
 
 const generateSudoku = () => {
-  // This is a very basic Sudoku generator/solver.
-  // For a real application, you'd want a more robust algorithm.
+
   const puzzle = [
     [5, 3, 0, 0, 7, 0, 0, 0, 0],
     [6, 0, 0, 1, 9, 5, 0, 0, 0],
@@ -40,13 +39,12 @@ const Sudoku = () => {
   useEffect(() => {
     const { puzzle, solution } = generateSudoku();
     setBoard(puzzle);
-    setInitialBoard(JSON.parse(JSON.stringify(puzzle))); // Deep copy
+    setInitialBoard(JSON.parse(JSON.stringify(puzzle)));
     setSolutionBoard(solution);
   }, []);
 
   const handleCellChange = (row: number, col: number, value: number) => {
     if (initialBoard[row][col] !== 0) {
-      // Cannot change initial numbers
       return;
     }
 

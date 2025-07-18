@@ -1,13 +1,23 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import './TicTacToe.css';
 
-const Square = ({ value, onClick }) => (
+interface SquareProps {
+  value: string;
+  onClick: () => void;
+}
+
+const Square = ({ value, onClick }: SquareProps) => (
   <button className="square" onClick={onClick}>
     {value}
   </button>
 );
 
-const Board = ({ squares, onClick }) => (
+interface BoardProps {
+  squares: string[];
+  onClick: (i: number) => void;
+}
+
+const Board = ({ squares, onClick }: BoardProps) => (
   <div className="board">
     {squares.map((square, i) => (
       <Square key={i} value={square} onClick={() => onClick(i)} />
@@ -22,7 +32,7 @@ const TicTacToe = () => {
   const [stepNumber, setStepNumber] = useState(0);
   const [xIsNext, setXIsNext] = useState(true);
 
-  const handleClick = (i) => {
+  const handleClick = (i: number) => {
     const currentHistory = history.slice(0, stepNumber + 1);
     const current = currentHistory[currentHistory.length - 1];
     const squares = current.squares.slice();
@@ -37,7 +47,7 @@ const TicTacToe = () => {
     setXIsNext(!xIsNext);
   };
 
-  const jumpTo = (step) => {
+  const jumpTo = (step: number) => {
     setStepNumber(step);
     setXIsNext((step % 2) === 0);
   };
@@ -45,7 +55,7 @@ const TicTacToe = () => {
   const current = history[stepNumber];
   const winner = calculateWinner(current.squares);
 
-  const moves = history.map((step, move) => {
+  const moves = history.map((_step, move) => {
     const desc = move ?
       'Go to move #' + move :
       'Go to game start';
@@ -79,7 +89,7 @@ const TicTacToe = () => {
   );
 };
 
-function calculateWinner(squares) {
+function calculateWinner(squares: string[]) {
   const lines = [
     [0, 1, 2],
     [3, 4, 5],
